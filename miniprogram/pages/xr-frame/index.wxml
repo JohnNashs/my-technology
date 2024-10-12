@@ -1,0 +1,10 @@
+<navigation-bar title="XR-FRAME" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<view>
+  <xr-start
+    disable-scroll
+    id="main-frame"
+    width="{{renderWidth}}"
+    height="{{renderHeight}}"
+    style="width:{{width}}px;height:{{height}}px;"
+  />
+</view>

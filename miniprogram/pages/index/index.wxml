@@ -21,8 +21,9 @@
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
     </view>
-    <view class="usermotto">
+    <button class="usermotto" bindtap="goToXr" type="primary">{{motto}}</button>
+    <!-- <view class="usermotto" bindtap="goToXr">
       <text class="user-motto">{{motto}}</text>
-    </view>
+    </view> -->
   </view>
 </scroll-view>

@@ -2,10 +2,11 @@
 // 获取应用实例
 const app = getApp<IAppOption>()
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+console.log(app);
 
 Component({
   data: {
-    motto: 'Hello World',
+    motto: '前往XR页面',
     userInfo: {
       avatarUrl: defaultAvatarUrl,
       nickName: '',
@@ -21,6 +22,18 @@ Component({
         url: '../logs/logs',
       })
     },
+    goToXr() {
+      if(!app.globalData.avatarUrl) {
+        wx.showToast({
+          title: '请先授权获取头像',
+          icon: 'none'
+        })
+        return
+      }
+      wx.navigateTo({
+        url: '../xr-frame/index',
+      })
+    },
     onChooseAvatar(e: any) {
       const { avatarUrl } = e.detail
       const { nickName } = this.data.userInfo
@@ -28,6 +41,7 @@ Component({
         "userInfo.avatarUrl": avatarUrl,
         hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
       })
+      app.globalData.avatarUrl = avatarUrl
     },
     onInputChange(e: any) {
       const nickName = e.detail.value

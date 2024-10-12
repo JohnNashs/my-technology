@@ -1,0 +1,35 @@
+<xr-scene ar-system="modes:Plane" bind:ready="handleReady">
+
+  <xr-assets bind:progress="handleAssetsProgress" bind:loaded="handleAssetsLoaded">
+    <xr-asset-load type="gltf" asset-id="damage-helmet" src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/damage-helmet/index.glb" />
+    <xr-asset-load type="gltf" asset-id="miku" src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/miku.glb" />
+    <!-- <xr-asset-load type="texture" asset-id="waifu" src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/waifu.png" />
+    <xr-asset-load type="video-texture" asset-id="office" src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/videos/office-skybox.mp4" options="autoPlay:true,loop:true" /> -->
+  </xr-assets>
+
+  <xr-env env-data="xr-frame-team-workspace-day"/>
+  <xr-light type="ambient" color="1 1 1" intensity="1" />
+  <xr-light type="directional" rotation="40 70 0" color="1 1 1" intensity="3" cast-shadow />
+
+  <!-- <xr-gltf node-id="damage-helmet" model="damage-helmet" />
+  <xr-gltf model="miku" position="-0.15 0.75 0" scale="0.07 0.07 0.07" rotation="0 180 0" anim-autoplay /> -->
+  <!-- <xr-mesh
+    node-id="cube" cast-shadow
+    geometry="cube" uniforms="u_baseColorMap: waifu,u_metallicRoughnessValues:1 0.1"
+  />
+  <xr-mesh
+    position="0 -1 0" scale="4 1 4" receive-shadow
+    geometry="plane" uniforms="u_baseColorMap: {{avatarTextureId}}"
+  /> -->
+  <xr-ar-tracker mode="Plane">
+    <xr-gltf model="anchor"></xr-gltf>
+  </xr-ar-tracker>
+  <xr-node node-id="setitem" visible="false">
+    <xr-gltf model="damage-helmet" anim-autoplay scale="0.08 0.08 0.08" rotation="0 180 0"/>
+  </xr-node>
+  <!-- <xr-camera
+    position="0 1.5 4" target="damage-helmet" background="skybox"
+    clear-color="0.4 0.8 0.6 1" camera-orbit-control
+  /> -->
+  <xr-camera clear-color="0.4 0.8 0.6 1" background="ar" is-ar-camera />
+</xr-scene>
