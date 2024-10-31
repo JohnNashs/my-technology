@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "navigation-bar": "/components/navigation-bar/navigation-bar",
-    "xr-start": "../../components/xr-start/index"
+    "xr-start": "../../components/xr-start/index",
+    "xr-ar-osdmarker": "../../components/xr-ar-osdmarker/index"
   },
   "disableScroll": true
 }
